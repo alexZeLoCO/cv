@@ -6,7 +6,7 @@ export type Experience = {
             from: string;
             to: string;
         };
-        content: string;
+        content: JSX.Element;
 }
 
 export const PreviousExperienceSet = (
@@ -16,7 +16,6 @@ export const PreviousExperienceSet = (
 ) => {
     return (
         <div>
-            { PreviousExperienceSetHeader () }
             <table>
                 <tbody>
                     {props.experiences.map((experience: Experience) => PreviousExperience(experience))}
@@ -41,7 +40,7 @@ export const PreviousExperience = (
                 <td> <h3>{props.title}</h3> </td>
                 <td className="right"> {props.dateRange.from} - {props.dateRange.to} </td>
             </tr>
-            <tr>
+            <tr className="experience_content">
                 <td colSpan={2}> {props.content} </td>
             </tr>
         </>

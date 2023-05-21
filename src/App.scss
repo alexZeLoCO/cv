@@ -1,7 +1,3 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 $background: #222222;
 $font: #eeeeee;
 $primary: #889188;
@@ -12,6 +8,7 @@ $accent: #43d1c5;
   background: $background;
   color: $font;
   font-family: "Courier New", Courier, monospace;
+  margin: 5px;
 }
 
 .list_none {
@@ -25,6 +22,7 @@ $accent: #43d1c5;
 h1 {
   @extend .accent_font;
   font-size: xx-large;
+  text-align: center;
 }
 
 h2 {
@@ -38,10 +36,30 @@ h3 {
   font-size: large;
 }
 
+button {
+  text-align: center;
+}
+
+.collapsible_button {
+  @extend h2;
+  border: none;
+  margin: 5px;
+  padding: 5px;
+}
+
+.collapsible_button:hover {
+  @extend .collapsible_button;
+  color: $secondary;
+  border: solid 1px $accent;
+  border-radius: 10px;
+}
+
+.experience_content {
+  margin-right: 10%;
+}
+
 table {
   width: 100%;
-  border: solid 1px $primary;
-  border-radius: 10px;
 }
 
 .right {
