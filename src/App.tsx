@@ -1,7 +1,7 @@
 import "./App.scss";
 import { Collapsible } from "./components/Collapsible";
 import { PreviousExperienceSet } from "./components/PreviousExperience";
-import { Header } from "./components/header/Header";
+import { Header } from "./components/Header";
 
 export default function App() {
   return (
