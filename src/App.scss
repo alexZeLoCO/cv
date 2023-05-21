@@ -1,46 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 $background: #222222;
-$font: #EEEEEE;
+$font: #eeeeee;
+$primary: #889188;
+$secondary: #140002;
+$accent: #43d1c5;
 
 * {
   background: $background;
   color: $font;
+  font-family: "Courier New", Courier, monospace;
 }
 
-.App {
+.list_none {
+  list-style: none;
+}
+
+.accent_font {
+  color: $accent;
+}
+
+h1 {
+  @extend .accent_font;
+  font-size: xx-large;
+}
+
+h2 {
+  @extend .accent_font;
+  font-size: x-large;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h3 {
+  @extend .accent_font;
+  font-size: large;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+table {
+  width: 100%;
+  border: solid 1px $primary;
+  border-radius: 10px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.right {
+  text-align: right;
 }

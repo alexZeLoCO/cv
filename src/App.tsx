@@ -1,10 +1,11 @@
 import './App.scss';
 import { PreviousExperienceSet } from './components/PreviousExperience';
+import { Header } from "./components/header/Header";
 
-function App() {
+export default function App() {
   return (
     <div className="App">
-      <h1>Alex</h1>
+      <Header/>
       <PreviousExperienceSet experiences={[
         {
           title: "System admin",

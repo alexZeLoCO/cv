@@ -1,3 +1,4 @@
+import "../../App.scss";
 
 export type InfoEntryData = {
     k: string,
@@ -10,8 +11,8 @@ export const MyInfo = (
     }
 ) => {
     return (
-        <div id="my_info">
-            <ul>
+        <div>
+            <ul className="list_none">
                 <li>{ props.entries.map(entry => <MyInfoEntry k={entry.k} v={entry.v} />)}</li>
             </ul>
         </div>
@@ -20,6 +21,6 @@ export const MyInfo = (
 
 const MyInfoEntry = (data: InfoEntryData) => {
     return (
-        <div> <span className="font_accent">{ data.k }</span>: { data.v} </div>
+        <div> <span className="accent_font">{ data.k }</span>: { data.v} </div>
     );
 }
