@@ -2,15 +2,34 @@ import "./App.scss";
 import { Collapsible } from "./components/Collapsible";
 import { PreviousExperienceSet } from "./components/PreviousExperience";
 import { Header } from "./components/Header";
+import { Tab } from "./components/Tab";
 
-export default function App() {
-  return (
-    <div className="App">
-    </div>
-  ); 
-}
+// Firebase
 
-/*
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyASymfvu3alLRqR-_qIQ9lWIMTMazUiHiI",
+  authDomain: "alex-cv-eac9f.firebaseapp.com",
+  projectId: "alex-cv-eac9f",
+  storageBucket: "alex-cv-eac9f.appspot.com",
+  messagingSenderId: "1008366274596",
+  appId: "1:1008366274596:web:a4e16da61a033c661a70b1",
+  measurementId: "G-JEC9SPZZ7D"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+
+// Firebase
+
 export default function App() {
   return (
     <div className="App">
@@ -20,24 +39,32 @@ export default function App() {
         info={[
           {
             k: "Born in",
-            v: "Sep 2002",
+            v: <>Sep, 2002</>,
           },
           {
             k: "Tlf.",
-            v: "+34 660 51 01 99",
+            v: <>+34 660 51 01 99</>,
           },
           {
             k: "email",
-            v: "alejandro.rod.lop@gmail.com",
+            v: (
+              <a href="mailto:alejandro.rod.lop@gmail.com">
+                alejandro.rod.lop@gmail.com
+              </a>
+            ),
           },
           {
             k: "Location.",
-            v: "33204, Gijón, Asturias, Spain",
+            v: <>33204, Gijón, Asturias, Spain</>,
           },
           {
             k: "Driving License",
-            v: "B",
+            v: <>B</>,
           },
+          {
+            k: "LinkedIn",
+            v: <a href="https://www.linkedin.com/in/alex02/">https://www.linkedin.com/in/alex02/</a>
+          }
         ]}
       />
       <hr />
@@ -101,88 +128,259 @@ export default function App() {
       />
       <hr />
       <Collapsible
-        title="Qualifications"
+        title="Skills"
         children={[
           <Collapsible
             title="Digital Skills"
             children={[
               <div>
-                <h3>General Knowledge</h3>              
+                <h3>General Knowledge</h3>
                 <table>
-                  <tr><th colSpan={2}>Office Suite</th><th>Creative Software</th></tr>
-                  <tr><td>
-                    <ul>
-                      <li>Microsoft Word</li>
-                      <li>Microsoft Excel</li>
-                      <li>Microsoft Powerpoint</li>
-                      <li>Microsoft Visio</li>
-                    </ul>
-                  </td> <td>
-                    <ul>
-                      <li>Outlook</li>
-                      <li>Zoom</li>
-                      <li>LibreOffice Writer</li>
-                      <li>LibreOffice Calc</li>
-                      <li>LibreOffice Draw</li>
-                    </ul>
-                  </td>
-                  <td>
-                    <ul>
-                      <li>Photoshop (CS5)</li>
-                      <li>Sony Vegas Pro 13</li>
-                      <li>Adobe Flash</li>
-                      <li>GIMP 2.0</li>
-                      <li>DaVinci Resolve</li>
-                    </ul>
-                  </td></tr>
-                </table>
-                <h3>Programming Knowledge</h3>
-                <table>
-                  <tr><th colSpan={2}>Languages</th><th colSpan={2}>Libraries</th><th rowSpan={2}>Methodologies</th></tr>
-                  <tr><td>Language</td><td>Used for</td><td>Library</td><td>Used for</td><td></td></tr>
                   <tr>
-                    <td> Python </td> <td> General Purpose </td> <td> JDBC </td> <td> Java Database Connections </td> <td> Object Oriented Programming (OOP) </td>
-                  </tr> <tr>
-                    <td> Java </td> <td> Backend + Software </td> <td> ReactJS </td> <td> Web Development </td> <td> Functional Programming </td>
-                  </tr> <tr>
-                    <td> SQL </td> <td> Backend </td> <td> SASS / SCSS </td> <td> Web Development </td> <td> Mutithreaded Programming (OpenMP + CUDA) </td>
-                  </tr> <tr>
-                    <td> C / C++ </td> <td> High Performance Computing + Unix Utilities </td> <td> XSSFWorkbook </td> <td> Reading and Writing Excel from Java </td>
-                  </tr> <tr>
-                    <td> Bash </td> <td> Unix Utilities </td> 
-                  </tr> <tr>
-                    <td> HTML5 </td> <td> Web Frontend </td>
-                  </tr> <tr>
-                    <td> JavaScript / TypeScript </td> <td> General Purpose + Web </td>
-                  </tr> <tr>
-                    <td> CSS / SCSS </td> <td> Web Frontend </td>
-                  </tr> <tr>
-                    <td> DrRacket / Haskell </td> <td> Mathematics </td>
+                    <th colSpan={2}>Office Suite</th>
+                    <th>Creative Software</th>
+                  </tr>
+                  <tr>
+                    <td>Microsoft Office</td> <td>LibreOffice Suite</td>
+                    <td>
+                      <ul>
+                        <li>Photoshop (CS5)</li>
+                        <li>Sony Vegas Pro 13</li>
+                        <li>Adobe Flash</li>
+                        <li>GIMP 2.0</li>
+                        <li>DaVinci Resolve</li>
+                      </ul>
+                    </td>
                   </tr>
                 </table>
-              </div>
+                <h3>Programming Knowledge</h3>
+                <Tab
+                  data={[
+                    {
+                      tabTitle: "Languages",
+                      contentTitle: "Languages",
+                      content: (
+                        <table className="border_table">
+                          <tr>
+                            <th>Language</th>
+                            <th>Use case</th>
+                          </tr>
+                          <tr>
+                            <td>Python</td>
+                            <td>General Purpose</td>
+                          </tr>
+                          <tr>
+                            <td>Java</td>
+                            <td>Backend + Software</td>
+                          </tr>
+                          <tr>
+                            <td>SQL</td>
+                            <td>Backend + Database</td>
+                          </tr>
+                          <tr>
+                            <td>C / C++</td>
+                            <td>HPC + Unix Utilities</td>
+                          </tr>
+                          <tr>
+                            <td>Bash</td>
+                            <td>Unix Utilities</td>
+                          </tr>
+                          <tr>
+                            <td>HTML5</td>
+                            <td>Web Frontend</td>
+                          </tr>
+                          <tr>
+                            <td>CSS / SCSS</td>
+                            <td>Web Frontend</td>
+                          </tr>
+                          <tr>
+                            <td>JavaScript / TypeScript</td>
+                            <td>Web Backend</td>
+                          </tr>
+                          <tr>
+                            <td>DrRacket / Haskell</td>
+                            <td>Mathematics</td>
+                          </tr>
+                          <tr>
+                            <td>Git</td>
+                            <td>Version Control</td>
+                          </tr>
+                        </table>
+                      ),
+                    },
+                    {
+                      tabTitle: "Libraries",
+                      contentTitle: "Libraries",
+                      content: (
+                        <table className="border_table">
+                          <tr>
+                            <th>Library</th>
+                            <th>Use case</th>
+                          </tr>
+                          <tr>
+                            <td>JDBC</td>
+                            <td>Java Database Connection</td>
+                          </tr>
+                          <tr>
+                            <td>XSSFWorkspace</td>
+                            <td>Java Excel Connection</td>
+                          </tr>
+                          <tr>
+                            <td>Java Swing</td>
+                            <td>Frontend</td>
+                          </tr>
+                          <tr>
+                            <td>ReactJS</td>
+                            <td>Frontend</td>
+                          </tr>
+                          <tr>
+                            <td>DiscordJS</td>
+                            <td>Discord Bot</td>
+                          </tr>
+                        </table>
+                      ),
+                    },
+                    {
+                      tabTitle: "Methodologies",
+                      contentTitle: "Methodologies",
+                      content: (
+                        <table className="border_table">
+                          <tr>
+                            <th>Methodology</th>
+                            <th>Description</th>
+                          </tr>
+                          <tr>
+                            <td>Object Oriented Programming (OOP)</td>
+                            <td>
+                              Software is divided in objects, design patterns
+                              are used frequently. This allows the program to
+                              scale easily.
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Multithreaded Programming (HPC)</td>
+                            <td>
+                              Enables multiple cores from CPUs (OpenMP) and GPUs
+                              (CUDA) so they can work on the same task.
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Functional Programming</td>
+                            <td>
+                              Software is built by defining functions that call
+                              one another. Allows to write complex programs with
+                              very few lines of code.
+                            </td>
+                          </tr>
+                        </table>
+                      ),
+                    },
+                  ]}
+                />
+                <br/><h3>Linux</h3>
+                  I have been using Linux for years, and since 2021, it is the only OS I use.
+                  <ul>
+                    <li>Proficient terminal user.</li>
+                    <li>Experienced in the optimization of old hardware using Linux.</li>
+                    <li>Used to tinkering with the OS and its hardware.</li>
+                    <li>Used to communicating with other users from the community.</li>
+                    <li>Used to reading & writing useful documentation on different tools.</li>
+                  </ul>
+                  <table>
+                    <tr><th colSpan={7}>Linux Distributions I have used</th></tr>
+                    <tr>
+                      <td><a href="https://www.debian.org/">Debian</a></td>
+                      <td><a href="https://endeavouros.com/">Endeavour OS</a></td>
+                      <td><a href="https://archlinux.org/">Arch Linux</a></td>
+                      <td><a href="https://manjaro.org">Manjaro</a></td>
+                      <td><a href="https://almalinux.org">Almalinux</a></td>
+                      <td><a href="https://linuxmint.com">Linux Mint</a></td>
+                      <td><a href="https://ubuntu.com/">Ubuntu</a></td>
+                    </tr>
+                  </table>
+              </div>,
             ]}
           />,
           <Collapsible
             title="Language Skills"
             children={[
               <ul>
-                <li> <div> <h3>Spanish</h3> Mother Tongue </div> </li>
-                <li> <div> <h3>English</h3> Certificated by
-                  <ul>
-                    <li>Certificate in Proficiency (C2) [Jun, 2021]</li>
-										<li>Certificate in Advanced English (C1) [Jun, 2019]</li>
-										<li>First Certificate in English (B2) [Jun, 2017]</li>
-										<li>Preliminary English Test (B1) [Jun, 2015]</li>
-										<li>Key English Test (A2) [Jun, 2013]<br /></li>
-                  </ul> 
-                </div> </li>
-              </ul>
+                <li>
+                  {" "}
+                  <div>
+                    {" "}
+                    <h3>Spanish</h3> Mother Tongue{" "}
+                  </div>{" "}
+                </li>
+                <li>
+                  {" "}
+                  <div>
+                    {" "}
+                    <h3>English</h3> Certificated by{" "}
+                    <a href="https://www.cambridgeenglish.org/exams-and-tests/qualifications/general/">
+                      Cambridge
+                    </a>
+                    <ul>
+                      <li>Certificate in Proficiency (C2) [Jun, 2021]</li>
+                      <li>Certificate in Advanced English (C1) [Jun, 2019]</li>
+                      <li>First Certificate in English (B2) [Jun, 2017]</li>
+                      <li>Preliminary English Test (B1) [Jun, 2015]</li>
+                      <li>Key English Test (A2) [Jun, 2013]</li>
+                    </ul>
+                  </div>
+                </li>
+              </ul>,
             ]}
-          />
+          />,
+        ]}
+      />
+      <br/> <hr />
+      <Collapsible
+        title="Studies"
+        children={[
+          <PreviousExperienceSet
+            experiences={[
+              {
+                title: "Computer Engineering Degree (Asturias, Spain)",
+                dateRange: {
+                  from: "2020",
+                  to: "Present",
+                },
+                content: (
+                  <a href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwj3gLT9pYf_AhV6hv0HHZ35AIEQFnoECAsQAQ&url=https%3A%2F%2Fepigijon.uniovi.es%2F&usg=AOvVaw0qQpZrSD74Mi3q9d803I4t">
+                    Escuela Politécnica de Ingeniería de Gijón (Universidad de
+                    Oviedo)
+                  </a>
+                ),
+              },
+              {
+                title: "Highschool (Florida, United States)",
+                dateRange: {
+                  from: "2017",
+                  to: "2020",
+                },
+                content: (
+                  <a href="https://www.academica.school/">
+                    Academica International Studies
+                  </a>
+                ),
+              },
+              {
+                title: "Highschool (Asturias, Spain)",
+                dateRange: {
+                  from: "2014",
+                  to: "2020",
+                },
+                content: (
+                  <a href="https://www.dominicasgijon.es/">
+                    Colegio Virgen Mediadora
+                  </a>
+                ),
+              },
+            ]}
+          />,
         ]}
       />
     </div>
   );
 }
-*/
