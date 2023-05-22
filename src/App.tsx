@@ -4,32 +4,6 @@ import { PreviousExperienceSet } from "./components/PreviousExperience";
 import { Header } from "./components/Header";
 import { Tab } from "./components/Tab";
 
-// Firebase
-
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyASymfvu3alLRqR-_qIQ9lWIMTMazUiHiI",
-  authDomain: "alex-cv-eac9f.firebaseapp.com",
-  projectId: "alex-cv-eac9f",
-  storageBucket: "alex-cv-eac9f.appspot.com",
-  messagingSenderId: "1008366274596",
-  appId: "1:1008366274596:web:a4e16da61a033c661a70b1",
-  measurementId: "G-JEC9SPZZ7D"
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
-
-// Firebase
-
 export default function App() {
   return (
     <div className="App">
