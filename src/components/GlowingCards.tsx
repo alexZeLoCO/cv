@@ -1,9 +1,13 @@
 export const GlowingCards = (
     props: {
-        cardsContent: JSX.Element[]
+        cardsContent:{
+        content: JSX.Element,
+        link?: string
+        }[]
     }
 ) => {
     const handler = (evt: any) => {
+        evt.stopPropagation();
         const { currentTarget: target } = evt;
 
         const rect = target.getBoundingClientRect(),
@@ -15,7 +19,10 @@ export const GlowingCards = (
     }
     return (
         <div className="cards">
-            { props.cardsContent.map(prop => <div onMouseMove={(ev) => handler(ev)} className="card">{prop}</div>) }
+            {  props.cardsContent.map(prop => <a href={prop.link}><div 
+                onMouseMove={(ev) => handler(ev)}
+                className="card"
+                >{prop.content}</div></a>) }
         </div>
     );
 }

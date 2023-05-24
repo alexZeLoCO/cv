@@ -138,18 +138,28 @@ button {
 
 .cards {
   display: grid;
-  grid-gap: 1rem;  
-  grid-template-columns: repeat(3, 10rem);
-  text-align: center;
+  grid-gap: 2rem;  
+  grid-template-columns: repeat(3, 12rem);
+  justify-content: center;
 }
 
 .card {
   padding: 0.5rem;
   background-color: $background;
+  border: solid 1px $accent;
   border-radius: 1rem;
   height: 10rem;
   position: relative;
   width: 10rem;  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card a {
+  display: inline-block;
+  position: relative;
+  z-index: 1;
 }
 
 .card:hover::before {
@@ -171,7 +181,7 @@ button {
 
 .card::before {
   background: radial-gradient(
-    800px circle at var(--mouse-x) var(--mouse-y), 
+    400px circle at var(--mouse-x) var(--mouse-y), 
     rgba(255, 255, 255, 0.06),
     transparent 40%
   );
@@ -180,21 +190,9 @@ button {
 
 .card::after {  
   background: radial-gradient(
-    600px circle at var(--mouse-x) var(--mouse-y), 
+    300px circle at var(--mouse-x) var(--mouse-y), 
     rgba(255, 255, 255, 0.4),
     transparent 40%
   );
   z-index: 1;
-}
-
-.card > .card-content {
-  background-color: var(--card-color);
-  border-radius: inherit;
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-  inset: 1px;
-  padding: 10px;
-  position: absolute;
-  z-index: 2;
 }

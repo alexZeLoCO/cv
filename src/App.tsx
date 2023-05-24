@@ -264,13 +264,13 @@ export default function App() {
                   <h3>Linux</h3>
                   <GlowingCards
                     cardsContent={[
-                      <a href="https://www.debian.org/">Debian</a>,
-                      <a href="https://endeavouros.com/">Endeavour OS</a>,
-                      <a href="https://archlinux.org/">Arch Linux</a>,
-                      <a href="https://manjaro.org">Manjaro</a>,
-                      <a href="https://almalinux.org">Almalinux</a>,
-                      <a href="https://linuxmint.com">Linux Mint</a>,
-                      <a href="https://ubuntu.com/">Ubuntu</a>
+                      { content:<a href="https://www.debian.org/">Debian</a>, link:"https://www.debian.org" },
+                      { content:<a href="https://endeavouros.com/">Endeavour OS</a>, link:"https://endeavouros.org" },
+                      { content:<a href="https://archlinux.org/">Arch Linux</a>, link:"https://archlinux.org" },
+                      { content:<a href="https://manjaro.org">Manjaro</a>, link:"https://manjaro.org" },
+                      { content:<a href="https://almalinux.org">Almalinux</a>, link:"https://almalinux.org" },
+                      { content:<a href="https://linuxmint.com">Linux Mint</a>, link:"https://www.linuxmint.com" },
+                      { content:<a href="https://ubuntu.com/">Ubuntu</a>, link:"https://www.ubuntu.com" }
                     ]}
                   />
               </div>,
