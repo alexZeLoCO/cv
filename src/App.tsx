@@ -3,6 +3,7 @@ import { Collapsible } from "./components/Collapsible";
 import { PreviousExperienceSet } from "./components/PreviousExperience";
 import { Header } from "./components/Header";
 import { Tab } from "./components/Tab";
+import { GlowingCards } from "./components/GlowingCards";
 
 export default function App() {
   return (
@@ -260,18 +261,18 @@ export default function App() {
                     <li>Used to communicating with other users from the community.</li>
                     <li>Used to reading & writing useful documentation on different tools.</li>
                   </ul>
-                  <table>
-                    <tr><th colSpan={7}>Linux Distributions I have used</th></tr>
-                    <tr>
-                      <td><a href="https://www.debian.org/">Debian</a></td>
-                      <td><a href="https://endeavouros.com/">Endeavour OS</a></td>
-                      <td><a href="https://archlinux.org/">Arch Linux</a></td>
-                      <td><a href="https://manjaro.org">Manjaro</a></td>
-                      <td><a href="https://almalinux.org">Almalinux</a></td>
-                      <td><a href="https://linuxmint.com">Linux Mint</a></td>
-                      <td><a href="https://ubuntu.com/">Ubuntu</a></td>
-                    </tr>
-                  </table>
+                  <h3>Linux</h3>
+                  <GlowingCards
+                    cardsContent={[
+                      <a href="https://www.debian.org/">Debian</a>,
+                      <a href="https://endeavouros.com/">Endeavour OS</a>,
+                      <a href="https://archlinux.org/">Arch Linux</a>,
+                      <a href="https://manjaro.org">Manjaro</a>,
+                      <a href="https://almalinux.org">Almalinux</a>,
+                      <a href="https://linuxmint.com">Linux Mint</a>,
+                      <a href="https://ubuntu.com/">Ubuntu</a>
+                    ]}
+                  />
               </div>,
             ]}
           />,
