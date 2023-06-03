@@ -4,6 +4,7 @@ import { PreviousExperienceSet } from "./components/PreviousExperience";
 import { Header } from "./components/Header";
 import { Tab } from "./components/Tab";
 import { GlowingCards } from "./components/GlowingCards";
+import { Projects } from "./components/Projects";
 
 export default function App() {
   return (
@@ -99,6 +100,57 @@ export default function App() {
               },
             ]}
           />,
+        ]}
+      />
+      <hr />
+      <Collapsible
+        title="Projects"
+        children={[
+          <Projects
+            projects={[
+              {
+                name: <h3>Conway's Game of Life</h3>,
+                subtitle: <strong>Simulation, 2022 | Sole Developer</strong>,
+                functionalities: ["Select different preloaded populations", "Create custom populations with interactive GUI", "Limit number of generations", "View each generation"],
+                techStack: ["HTML5", "CSS", "JavaScript", "Git", "Visual Studio Code"]
+              }, {
+                name: <h3>HPC Benchmark</h3>,
+                subtitle: <strong>Multithreading Benchmark (CPU/GPU), 2022 | Sole Developer</strong>,
+                functionalities: ["Test different workloads", "Test different memory configurations", "Render black & white fractals"],
+                techStack: ["C", "Python", "Linux", "OpenMP", "CUDA", "Git", "Vim"]
+              }, {
+                name: <h3>Avisos</h3>,
+                subtitle: <strong>Ticket Software, 2022 | Sole Developer</strong>,
+                functionalities: ["Create/Edit ticket", "Clear ticket", "Filter tickets", "Accesible from anywhere"],
+                techStack: ["PostgreSQL", "Java", "Javax Swing", "Windows (Clients)", "Linux (Server)", "Eclipse"]
+              }, {
+                name: <h3>Numerical Analysis</h3>,
+                subtitle: <strong>Program used to apply numerical methods | Sole Developer</strong>,
+                functionalities: ["Interpolation (Lagrange / Newton) + Chevyshev nodes", "Differentiation", "Integration"],
+                techStack: ["C", "Haskell", "Linux", "Vim"]
+              }, {
+                name: <h3>Discord Bot</h3>,
+                subtitle: <strong>General Purpose / Management, 2023 | Sole Developer</strong>,
+                functionalities: ["Keep track of members", "Warn / Kick / Ban members", "Create and resolve giveaways", "Ticket system", "Self Hosted on Raspberry Pi"],
+                techStack: ["TypeScript", "DiscordJS", "Git", "Vim"]
+              }, {
+                name: <h3>Excel Parser</h3>,
+                subtitle: <strong>Ad-hoc parser, 2023 | Sole Developer</strong>,
+                functionalities: ["Find quantities needed in each bank account to meet expenses"],
+                techStack: ["Java", "Javax Swing", "XSSFWorkbook", "Eclipse"]
+              }, {
+                name: <h3>COIIPA</h3>,
+                subtitle: <strong>School Courses Administration Software (Simulation), 2023 | Team of 4</strong>,
+                functionalities: ["Register / Edit courses", "Courses may have different prices for different categories of students", "Payment registration", "Course filtering"],
+                techStack: ["SQLite3", "Java", "Javax Swing", "Git", "Eclipse"]
+              }, {
+                name: <h3>Online Resume</h3>,
+                subtitle: <strong>My own resume accessible from anywhere, 2023 | Sole Developer</strong>,
+                functionalities: ["View resume", "Collapsing sections", "Self Hosted on Raspberry Pi"],
+                techStack: ["HTML5", "SCSS", "ReactJS", "TypeScipt", "Git", "Vim", "Visual Studio Code"]
+              }
+            ]}
+          />
         ]}
       />
       <hr />
@@ -265,7 +317,7 @@ export default function App() {
                   <GlowingCards
                     cardsContent={[
                       { content:<a href="https://www.debian.org/">Debian</a>, link:"https://www.debian.org" },
-                      { content:<a href="https://endeavouros.com/">Endeavour OS</a>, link:"https://endeavouros.org" },
+                      { content:<a href="https://endeavouros.com/">Endeavour OS</a>, link:"https://endeavouros.com" },
                       { content:<a href="https://archlinux.org/">Arch Linux</a>, link:"https://archlinux.org" },
                       { content:<a href="https://manjaro.org">Manjaro</a>, link:"https://manjaro.org" },
                       { content:<a href="https://almalinux.org">Almalinux</a>, link:"https://almalinux.org" },

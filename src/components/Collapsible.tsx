@@ -11,7 +11,7 @@ export const Collapsible = (
         setOpen(!open);
     };
     return (
-        <div>
+        <div className="collapsible">
             <button className="collapsible_button" onClick={toggle}>{props.title} {open ? "-" : "+"}</button>
             {open && (
                 props.children.map(child => child)

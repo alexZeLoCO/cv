@@ -11,6 +11,13 @@ $accent: #43d1c5;
   margin: 5px;
 }
 
+.App {
+  padding-top: 5rem;
+  padding-bottom: 5em;
+  padding-left: 10rem;
+  padding-right: 10rem;
+}
+
 .list_none {
   list-style: none;
 }
@@ -40,11 +47,29 @@ button {
   text-align: center;
 }
 
+.collapsible {
+  pointer-events: none;
+  border: solid 1px $background;
+  border-radius: 10px;
+}
+
+.collapsible * {
+  pointer-events: auto;
+}
+
+.collapsible:hover {
+  border: solid 1px $accent;
+  border-radius: 10px;
+}
+
 .collapsible_button {
   @extend h2;
+  pointer-events: auto;
   border: none;
   margin: 5px;
   padding: 5px;
+  border: solid 1px $background;
+  border-radius: 10px;
 }
 
 .collapsible_button:hover {
